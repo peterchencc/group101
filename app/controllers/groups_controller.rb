@@ -6,18 +6,23 @@ class GroupsController < ApplicationController
     # flash[:notice] = "早安!!!!!!"
     # flash[:alert] = "晚安！該睡了！"
 
-    @groups = Group.all
+    # @groups = Group.where(:description =>'').order("id ASC")
+    @groups =Group.all.page(params[:page]).per(5)
+
+    puts request.variant
+
+
   end
 
   def show
     @group = Group.find(params[:id])
-    @posts = @group.posts
+    @posts = @group.posts.page(params[:page]).per(10)
+
 
   end
 
   def new
     @group = Group.new
-
   end
 
   def edit
@@ -29,8 +34,9 @@ class GroupsController < ApplicationController
 
     if @group.save
       current_user.join!(@group)
+
       redirect_to groups_path, :notice =>'新增討論板成功'
-      
+      # MyMailer.create_group_email(current_user.email,@group).deliver
 
     else
       render :new
