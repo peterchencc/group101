@@ -7,6 +7,7 @@
     <thead> 
       <tr>
         <td> # </td>
+        <td> Photo </td>
         <td> Title </td>
         <td> Description </td>
       </tr>
@@ -16,6 +17,8 @@
             <% @groups.each do |group| %> 
     <tr>
       <td> # </td>
+      <td> <%= image_tag(group.avatar_url) %> </td>
+      <!-- <td> <%= image_tag(group.avatar_url(:thumb100)) %> </td> -->
       <td>  <%= link_to(group.title, group_path(group)) %> </td>
       <td>  <%= group.description %> </td>
       <td>  

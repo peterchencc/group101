@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230072741) do
+ActiveRecord::Schema.define(version: 20150108034949) do
 
   create_table "group_users", force: true do |t|
     t.integer  "group_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141230072741) do
     t.text     "categories"
     t.integer  "user_id"
     t.integer  "posts_count", default: 0
+    t.string   "avatar"
   end
 
   create_table "posts", force: true do |t|

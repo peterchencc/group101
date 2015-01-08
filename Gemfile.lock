@@ -44,6 +44,11 @@ GEM
       slim (>= 1.3.6, < 3.0)
       terminal-table (~> 1.4)
     builder (3.2.2)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     code_analyzer (0.4.5)
       sexp_processor
     coffee-rails (4.0.1)
@@ -82,6 +87,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
+    mini_magick (4.0.1)
     minitest (5.5.0)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
@@ -179,11 +185,13 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   brakeman
+  carrierwave
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  mini_magick
   pg
   rails (= 4.1.6)
   rails_12factor

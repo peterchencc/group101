@@ -1,7 +1,13 @@
-<%= simple_form_for group do |f| %>
+<%= simple_form_for group ,:html => {:multipart => true} do |f| %>
   <div class="form-group">
     <%= f.input :title, input_html: { class: "form-control"} %>
     <%= f.input :description, input_html: { class: "form-control"} %>
   </div>
+   <p>
+    <label>Group Photo</label>
+    <%= image_tag(@group.avatar_url) if @group.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </p>
   <%= f.submit "Submit", disable_with: 'Submitting...', class: "btn btn-primary"%>
 <% end %>
